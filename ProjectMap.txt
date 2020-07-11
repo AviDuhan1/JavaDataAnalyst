@@ -1,0 +1,18 @@
+This program will import datasets (eventually in various formats), decide which statistical test is most appropriate, and then run that statistical test.
+There will be functions for importing datasets, exporting datasets(?), removing outliers (or at least an option to do so), deducing which variables in a dataset are statistically significant, deciding which tests are most appropriate for the dataset,
+and running those tests on that dataset. Furthermore, features for analyzing correlation between variables will be available.
+(NOTE: this project is in early alpha, so more features or changes to features are to come)
+
+Project Steps:
+1. Figure out how to import datasets into Java in a way where they are usuable.
+	1a. Start out with one datafile type (IE xml), and then expand outward from there once the other features are working.
+2. Figure out how to trim outliers from a dataset, and implement a function that will do so.
+3. Create a function to see if stepwise regression (or another form of deciding which variables are significant) is valid.
+	3a. This will involve creating a function which tests a dataset for normality.
+4. Create a function that performs stepwise regression (or otherwise) on the dataset itself to determine validity of variables.
+5. Create functions that decide whether or not a specific test is valid for a given dataset
+	5a. This includes t-test, z-test, etc... with options for one-tailed and two-tailed included
+	5b. Create a master function that runs each of these on a dataset.
+	5c. Given which tests (if any) are valid, return the most "powerful" test possible that can be run on that dataset.
+6. Create a function which runs a given statistical test based on which test was chosen.
+7. Create a function which takes two variables and a dataset as inputs and determines how correlated those two variables are.
