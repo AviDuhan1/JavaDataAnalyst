@@ -95,4 +95,22 @@ public class DataSetAnalyzer {
         return true;
     }
 
+    public static double[][] trim(double[][] dataset){
+        int length = dataset[0].length;
+        int height = dataset.length;
+         for(int i = 0; i < dataset.length; i++){
+             for(int j = 0; j < dataset[0].length; j++){
+                 System.out.print(dataset[i][j]);
+                 if(dataset[i][j] != -9999999){
+                     length--;
+                     break;
+                 }
+             }
+             System.out.println();
+         }
+         double[][] newDataset = new double[length][height];
+         return newDataset;
+         //TODO: TRANSFER OLD DATA INTO NEWDATASET ARRAY TO CREATE FINALIZED DATASET
+    }
+
 }

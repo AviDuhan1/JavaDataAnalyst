@@ -13,5 +13,7 @@ public class DataTest extends DataSetAnalyzer{
         for(int i = 0; i < dataset.length; i++){
             System.out.println(Arrays.toString(dataset[i]));
         }
+        double [][] newDataset = trim(dataset);
+        System.out.println(newDataset.length + " " + newDataset[0].length);
     }
 }
