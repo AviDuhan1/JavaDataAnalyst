@@ -96,21 +96,40 @@ public class DataSetAnalyzer {
     }
 
     public static double[][] trim(double[][] dataset){
-        int length = dataset[0].length;
-        int height = dataset.length;
+        int height = dataset[0].length;
+        int length = dataset.length;
          for(int i = 0; i < dataset.length; i++){
              for(int j = 0; j < dataset[0].length; j++){
                  System.out.print(dataset[i][j]);
                  if(dataset[i][j] != -9999999){
-                     length--;
+                     height--;
                      break;
                  }
              }
              System.out.println();
          }
          double[][] newDataset = new double[length][height];
+         //System.out.println("New dataset height: " + newDataset.length + ", New dataset length: " + newDataset[0].length);
+         transfer(dataset, newDataset);
          return newDataset;
-         //TODO: TRANSFER OLD DATA INTO NEWDATASET ARRAY TO CREATE FINALIZED DATASET
+    }
+
+    public static double[][] transfer(double[][] datasetOld, double[][] datasetNew){
+        int xcount = 0;
+        int ycount = 0;
+        for(int i = 0; i < datasetOld.length; i++){
+            for(int j = 0; j < datasetOld[0].length; j++){
+                if(datasetOld[i][j] != -9999999){
+                    datasetNew[xcount][ycount] = datasetOld[i][j];
+                    //System.out.print(datasetNew[xcount][ycount] + " ");
+                    xcount++;
+                }
+            }
+            //System.out.println();
+            xcount = 0;
+            ycount++;
+        }
+        return datasetNew;
     }
 
 }
